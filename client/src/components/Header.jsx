@@ -39,6 +39,7 @@ const Header = () => {
                   className='rounded-full h-7 w-7 object-cover'
                   src={currentUser.avatar}
                   alt='profile'
+                  onError={(e) => console.error('Error loading image:', e)}
                 />
               ) : (
                 <li className='hidden sm:inline text-slate-700 hover:underline'>Sign in</li>
