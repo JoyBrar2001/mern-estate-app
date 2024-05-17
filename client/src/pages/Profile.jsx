@@ -4,7 +4,7 @@ import { getDownloadURL, getStorage, ref, uploadBytesResumable } from 'firebase/
 import { app } from '../firebase'
 import { updateUserStart, updateUserSuccess, updateUserFailure, deleteUserFailure, deleteUserStart, deleteUserSuccess, signOutUserStart } from '../redux/user/userSlice'
 import { useDispatch } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 const Profile = () => {
   const fileRef = useRef(null)
@@ -95,7 +95,7 @@ const Profile = () => {
     }
   }
 
-  const handleSignOut = async() => {
+  const handleSignOut = async () => {
     try {
       dispatch(signOutUserStart());
       const res = await fetch('/api/auth/signout');
@@ -171,6 +171,12 @@ const Profile = () => {
         >
           {loading ? 'Loading...' : 'Update'}
         </button>
+        <Link
+          to="/create-listing"
+          className='bg-green-700 text-white p-3 rounded-lg uppercase text-center hover:opacity-95'
+        >
+          Create Listing
+        </Link>
       </form>
 
       <div className="flex justify-between mt-5">

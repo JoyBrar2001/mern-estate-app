@@ -6,7 +6,7 @@ import { signInStart, signInSuccess, signInFailure } from '../redux/user/userSli
 import OAuth from '../components/OAuth';
 
 const SignIn = () => {
-  const [formData, setFormData] = useState({});
+  const [ formData, setFormData ] = useState({});
   const { loading, error } = useSelector((state) => state.user);
 
   const navigate = useNavigate();
@@ -39,7 +39,7 @@ const SignIn = () => {
 
       dispatch(signInSuccess(data));
       navigate('/');
-  
+
     } catch (error) {
       dispatch(signInFailure(error));
     }
