@@ -17,7 +17,7 @@ const CreateListing = () => {
     bedrooms: 1,
     bathrooms: 1,
     regularPrice: 0,
-    discountPrice: 0,
+    discountedPrice: 0,
     offer: false,
     parking: false,
     furnished: false,
@@ -115,7 +115,7 @@ const CreateListing = () => {
       if (formData.imageUrls.length < 1) {
         return setError('You must upload at least 1 photo')
       }
-      if (formData.regularPrice < formData.discountPrice) {
+      if (formData.regularPrice < formData.discountedPrice) {
         return setError('Discount price must be less than regular price')
       }
       setLoading(true)
@@ -280,13 +280,13 @@ const CreateListing = () => {
               <div className='flex items-center gap-2'>
                 <input
                   type="number"
-                  id='discountPrice'
+                  id='discountedPrice'
                   min='1'
                   max='10'
                   required
                   className='p-3 border border-gray-300 rounded-lg'
                   onChange={handleChange}
-                  value={formData.discountPrice}
+                  value={formData.discountedPrice}
                 />
                 <div className='flex flex-col items-center'>
                   <p>Discounted Price</p>

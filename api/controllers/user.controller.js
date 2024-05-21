@@ -1,4 +1,5 @@
 const User = require("../models/user.models");
+const Listing = require("../models/listing.model");
 const errorHandler = require("../utils/error");
 const bcrypt = require('bcrypt');
 
@@ -33,10 +34,9 @@ const updateUser = async (req, res, next) => {
 }
 
 const deleteUser = async (req, res, next) => {
-    if(req.user.id !== req.params.id){
+    if (req.user.id !== req.params.id) {
         return next(errorHandler(401, 'You can only delete your own account'));
     }
-
     try {
         await User.findByIdAndDelete(req.params.id);
         res.clearCookie('access_token');
@@ -46,4 +46,17 @@ const deleteUser = async (req, res, next) => {
     }
 }
 
-module.exports = { updateUser, deleteUser };
+const getUserListing = async (req, res, next) => {
+    if (req.user.id === req.params.id) {
+        try {
+            const listings = await Listing.find({ userRef: req.params.id });
+            res.status(200).json(listings);
+        } catch (error) {
+            next(error);
+        }
+    } else {
+        return next(errorHandler(401, 'You can only view your own listings!'));
+    }
+}
+
+module.exports = { updateUser, deleteUser, getUserListing };
