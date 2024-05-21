@@ -99,16 +99,16 @@ const Profile = () => {
 
   const handleSignOut = async () => {
     try {
-      dispatch(signOutUserStart());
-      const res = await fetch('/api/auth/signout');
-      const data = await res.json();
+      dispatch(signOutUserStart())
+      const res = await fetch('/api/auth/signout')
+      const data = await res.json()
       if (data.success === false) {
-        dispatch(deleteUserFailure(data.message));
-        return;
+        dispatch(deleteUserFailure(data.message))
+        return
       }
-      dispatch(deleteUserSuccess(data));
+      dispatch(deleteUserSuccess(data))
     } catch (error) {
-      dispatch(deleteUserFailure(data.message));
+      dispatch(deleteUserFailure(data.message))
     }
   }
 
@@ -121,10 +121,27 @@ const Profile = () => {
         setShowListingsError(true)
         return
       }
-      console.log(data);
+      console.log(data)
       setUserListings(data)
     } catch (error) {
-      setShowListingsError(true);
+      setShowListingsError(true)
+    }
+  }
+
+  const handleListingDelete = async (listingId) => {
+    try {
+      const res = await fetch(`/api/listing/delete/${listingId}`, {
+        method: 'DELETE'
+      })
+      const data = await res.json()
+      if(data.success === false){
+        console.log(data.message)
+        return
+      }
+
+      setUserListings((prev) => prev.filter(listing => listing._id !== listingId))
+    } catch (error) {
+      console.log(error)
     }
   }
 
@@ -243,7 +260,12 @@ const Profile = () => {
               </Link>
 
               <div className='flex flex-col'>
-                <button className='text-red-700'>Delete</button>
+                <button
+                  onClick={() => handleListingDelete(listing._id)}
+                  className='text-red-700'
+                  >
+                  Delete
+                </button>
                 <button className='text-green-700'>Edit</button>
               </div>
             </div>
