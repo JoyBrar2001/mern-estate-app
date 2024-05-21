@@ -10,7 +10,7 @@ import { useSelector } from 'react-redux'
 
 const Listing = () => {
   SwiperCore.use(Navigation)
-
+  console.log("Entered the Listing page");
   const [listing, setListing] = useState(null)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(false)
@@ -80,7 +80,7 @@ const Listing = () => {
             <p className='text-2xl font-semibold'>
               {listing.name} - ${' '}
               {listing.offer
-                ? listing.discountPrice.toLocaleString('en-US')
+                ? listing.discountedPrice.toLocaleString('en-US')
                 : listing.regularPrice.toLocaleString('en-US')}
               {listing.type === 'rent' && ' / month'}
             </p>
