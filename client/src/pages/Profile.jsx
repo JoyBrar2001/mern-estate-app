@@ -134,7 +134,7 @@ const Profile = () => {
         method: 'DELETE'
       })
       const data = await res.json()
-      if(data.success === false){
+      if (data.success === false) {
         console.log(data.message)
         return
       }
@@ -263,10 +263,14 @@ const Profile = () => {
                 <button
                   onClick={() => handleListingDelete(listing._id)}
                   className='text-red-700'
-                  >
+                >
                   Delete
                 </button>
-                <button className='text-green-700'>Edit</button>
+                <Link to={`/update-listing/${listing._id}`}>
+                  <button className='text-green-700'>
+                    Edit
+                  </button>
+                </Link>
               </div>
             </div>
           ))}
