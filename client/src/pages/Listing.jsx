@@ -9,7 +9,7 @@ import Contact from '../components/Contact'
 import { useSelector } from 'react-redux'
 
 const Listing = () => {
-  SwiperCore.use(Navigation)
+  SwiperCore.use([Navigation])
   console.log("Entered the Listing page");
   const [listing, setListing] = useState(null)
   const [loading, setLoading] = useState(false)
