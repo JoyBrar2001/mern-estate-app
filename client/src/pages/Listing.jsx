@@ -10,7 +10,6 @@ import { useSelector } from 'react-redux'
 
 const Listing = () => {
   SwiperCore.use([Navigation])
-  console.log("Entered the Listing page");
   const [listing, setListing] = useState(null)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(false)
