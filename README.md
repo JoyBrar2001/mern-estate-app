@@ -4,6 +4,15 @@
 
 Welcome to the Joy Estate Marketplace web app! This full-stack application is designed to facilitate the buying, selling, and renting of real estate properties. With user-friendly interfaces and robust backend support, this app provides a seamless experience for property seekers and owners alike.
 
+## Features
+
+- **User Authentication:** Secure login and registration with options for Google OAuth.
+- **Property Listings:** Browse and search properties for sale or rent with detailed descriptions, photos, and pricing.
+- **Property Management:** Users can list new properties, update existing listings, and manage their property portfolio.
+- **Advanced Search:** Filter properties by location, price range, property type, and other criteria.
+- **Messaging System:** Direct messaging between buyers/renters and property owners for inquiries and negotiations via email.
+- **Responsive Design:** Optimized for both desktop and mobile viewing.
+
 ## Screenshots
 
 ### Home Page
@@ -20,15 +29,6 @@ Welcome to the Joy Estate Marketplace web app! This full-stack application is de
 
 ### Create your listing
 ![Profile Details](screenshots/Create-Listing-1.png)
-
-## Features
-
-- **User Authentication:** Secure login and registration with options for Google OAuth.
-- **Property Listings:** Browse and search properties for sale or rent with detailed descriptions, photos, and pricing.
-- **Property Management:** Users can list new properties, update existing listings, and manage their property portfolio.
-- **Advanced Search:** Filter properties by location, price range, property type, and other criteria.
-- **Messaging System:** Direct messaging between buyers/renters and property owners for inquiries and negotiations via email.
-- **Responsive Design:** Optimized for both desktop and mobile viewing.
 
 ## Tech Stack
 
